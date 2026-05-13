@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Gekko Sushi</title>
+    <link rel="icon"  href="logo.jpg">
+</head>
+<body>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #000000;
+}
+
+/* HEADER */
+.header {
+      height: 15pxpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgb(61, 61, 61);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+  color: goldenrod;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.search {
+  width: 40%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background: #000000;
+  color: white;
+}
+
+.cart {
+  background: black;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+}
+
+/* HERO */
+.hero22 {
+  width: calc(100% - 40px); /* FIX */
+  margin: 20px;
+  background: rgb(60, 60, 60);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hero-img22 {
+  width: 100%;
+  height: 650px;
+  object-fit: cover;
+}
+
+.info {
+  padding: 20px;
+}
+
+/* MENU */
+.menu {
+  padding: 20px;
+}
+
+/* GRID FIX */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* CARD FIX */
+.card {
+  background: #1c1c1c; 
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+  display: flex;              
+  flex-direction: column;   
+  justify-content: space-between; 
+  height: 100%;              
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+/* IMAGE FIX */
+.card img {
+  width: 100%;
+  height: 180px; /* FIX */
+  object-fit: cover;
+}
+
+/* BODY FIX */
+.card-body {
+  padding: 15px;
+  display: flex;          /* FIX */
+  flex-direction: column; /* FIX */
+  gap: 6px;               /* FIX */
+  color: white;
+}
+
+.price {
+  color: gold; /* FIX */
+}
+
+.btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* TITLE */
+.h5 {
+  color: gold;
+  margin-left: 20px;
+  font-size: xx-large;
+}
+
+/* LINE */
+.hr {
+  width: 90%;
+  margin: 10px auto;
+  border: none;
+  border-top: 2px solid gold;
+}
+/* TABLET */
+@media (max-width: 900px){
+
+  .search {
+    width: 60%;
+  }
+
+  .hero-img22 {
+    height: 400px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px){
+
+  .header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  .hero22 {
+    margin: 10px;
+  }
+
+  .hero-img22 {
+    height: 250px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card img {
+    height: 160px;
+  }
+
+  .h5 {
+    font-size: 22px;
+    margin-left: 10px;
+  }
+}/* MOBILE NAV FIX */
+@media (max-width: 600px){
+
+  .header {
+    display: flex;
+    flex-direction: row; /* ԱՄԵՆԱԿԱՐԵՎՈՐ */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row; /* որ լինեն կողք կողքի */
+    flex-wrap: wrap; /* եթե տեղ չլինի, իջնի հաջորդ տող */
+    justify-content: center;
+  }
+
+  .nav a {
+    margin: 5px 10px;
+    font-size: 13px;
+  }
+
+  .logo {
+    font-size: 14px;
+  }
+}
+    .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  color: #ffffff;
+  text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+<!-- HEADER -->
+<div class="header">
+   <a href="index.html" class="close-btn">✕</a>
+  <div class="logo">Gekko Sushi</div>
+  <input class="search" placeholder="Enter delivery address">
+  <div class="cart">Cart: 0</div>
+</div>
+<!-- HERO -->
+<div class="hero22">
+  <img class="hero-img22" src="./images/order.png" alt="Gekko Sushi">
+</div>
+<!-- MENU -->
+<div class="menu">
+  <h2>Featured Items</h2>
+  <h5 class="h5">Nigiri</h5>
+  <hr class="hr">
+  <div class="grid">
+    <div class="card">
+      <img src="./images/Bluefin Tuna.webp" alt="Spicy Tuna Roll">
+      <div class="card-body">
+        <h3>Bluefin Tuna </h3>
+        <p class="price">$14.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Ora King Salmon.webp" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Ora King Salmon </h3>
+        <p class="price">$22.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Albacore1.avif" alt="Rice Cakes">
+      <div class="card-body">
+        <h3>Albacore</h3>
+        <p class="price">$14.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+<div class="card">
+      <img src="./images/kanapachi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Kanpachi</h3>
+        <p class="price">$14.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+        <div class="card">
+          <img src="./images/Kurodai.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Kurodai</h3>
+        <p class="price">$14.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Unagi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Unagi</h3>
+        <p class="price">$14.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Super Toro.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Super Toro</h3>
+        <p class="price">$36.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Toro Truffle with Truffle Butter.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Toro Truffle with Truffle Butter </h3>
+        <p class="price">$42.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div><div class="card">
+      <img src="./images/Alaskan King Crab.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Alaskan King Crab</h3>
+        <p class="price">$30.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Salmon1.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Salmon</h3>
+        <p class="price">$22.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div><div class="card">
+      <img src="./images/Toro Uni Caviar Truffle.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Toro Uni Caviar Truffle</h3>
+        <p class="price">$42.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+</div>
+
+
+<!-- MENU -->
+<div class="menu">
+  <h2>Featured Items</h2>
+  <h5 class="h5">Sashimi</h5>
+  <hr class="hr">
+  <div class="grid">
+<div class="card">
+      <img src="./images/salmon sashimi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Salmon Sashimi</h3>
+        <p class="price">$30.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+        <div class="card">
+          <img src="./images/Halibut Sashimi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Halibut Sashimi</h3>
+        <p class="price">$30.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Kanpachi Sashimi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Kanpachi Sashimi</h3>
+        <p class="price">$30.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Octopus Sashimi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Octopus Sashimi</h3>
+        <p class="price">$30.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Albacore Sashimi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Albacore Sashimi</h3>
+        <p class="price">$30.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div><div class="card">
+      <img src="./images/Toro Sashimi.webp" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Toro Sashimi</h3>
+        <p class="price">$42.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Moriawase Sashimi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Moriawase Sashimi</h3>
+        <p class="price">$64.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div><div class="card">
+      <img src="./images/Blue Fin Tuna Sashimi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Blue Fin Tuna Sashimi</h3>
+        <p class="price">$30.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+</div>
+
+
+
+<!-- MENU -->
+<div class="menu">
+  <h2>Featured Items</h2>
+  <h5 class="h5">Cut Rolls</h5>
+  <hr class="hr">
+  <div class="grid">
+<div class="card">
+      <img src="./images/kanapachi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Spicy Tuna Cut Roll</h3>
+        <p class="price">$14.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+        <div class="card">
+          <img src="./images/Kurodai.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Albacore Cut Roll</h3>
+        <p class="price">$14.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Unagi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Spicy Lobster Cut Roll</h3>
+        <p class="price">$24.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Super Toro.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Lemon Salmon Cut Roll</h3>
+        <p class="price">$16.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Toro Truffle with Truffle Butter.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Yellowtail Cut Roll</h3>
+        <p class="price">$14.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div><div class="card">
+      <img src="./images/Alaskan King Crab.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Salmon Cut Roll</h3>
+        <p class="price">$14.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Salmon1.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Shrimp Cut Roll</h3>
+        <p class="price">$19.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div><div class="card">
+      <img src="./images/Toro Uni Caviar Truffle.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Amanda's Way Cut Roll</h3>
+        <p class="price">$32.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/kanapachi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Ceviche Cut Roll</h3>
+        <p class="price">$28.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+        <div class="card">
+          <img src="./images/Kurodai.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Salmon Skin Cut Roll</h3>
+        <p class="price">$14.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Unagi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Unagi w/Unagi Cut Roll</h3>
+        <p class="price">$28.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Super Toro.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Crunch Shrimp Cut Roll</h3>
+        <p class="price">$36.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Toro Truffle with Truffle Butter.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Baked Snow Crab Cut Roll</h3>
+        <p class="price">$42.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div><div class="card">
+      <img src="./images/Alaskan King Crab.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Alaskan King Crab</h3>
+        <p class="price">$30.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Salmon1.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Spicy Scallop Cut Roll</h3>
+        <p class="price">$22.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div><div class="card">
+      <img src="./images/Toro Uni Caviar Truffle.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Negitoro Cut Roll</h3>
+        <p class="price">$42.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+ 
+    </div>
+<div class="card">
+      <img src="./images/kanapachi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Negitoro w/Toro on top Cut Roll</h3>
+        <p class="price">$14.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+        <div class="card">
+          <img src="./images/Kurodai.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Araz Cut Roll</h3>
+        <p class="price">$14.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Unagi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Unagi  Cut Roll</h3>
+        <p class="price">$14.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Super Toro.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Albacore w top Cut Roll</h3>
+        <p class="price">$36.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+  </div>
+<!-- MENU -->
+<div class="menu">
+  <h2>Featured Items</h2>
+  <h5 class="h5">Robatayaki</h5>
+  <hr class="hr">
+  <div class="grid">
+
+    <div class="card">
+      <img src="./images/Salmon1.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Chicken Liver</h3>
+        <p class="price">$10.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div><div class="card">
+      <img src="./images/Toro Uni Caviar Truffle.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Black Cod Skewer</h3>
+        <p class="price">$10.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/kanapachi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Shiitake Mushroom</h3>
+        <p class="price">$5.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+        <div class="card">
+          <img src="./images/Kurodai.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Chicken Yakitori</h3>
+        <p class="price">$6.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Unagi.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Pork Belly</h3>
+        <p class="price">$6.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Super Toro.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3> AUS Wagyu </h3>
+        <p class="price">$12.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Toro Truffle with Truffle Butter.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Negi </h3>
+        <p class="price">$5.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div><div class="card">
+      <img src="./images/Alaskan King Crab.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Lollipop Lamb Chops</h3>
+        <p class="price">$19.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <img src="./images/Salmon1.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Shrimp</h3>
+        <p class="price">$9.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+    </div><div class="card">
+      <img src="./images/Toro Uni Caviar Truffle.jpg" alt="Salmon Sushi">
+      <div class="card-body">
+        <h3>Tsukune</h3>
+        <p class="price">$6.00</p>
+        <button class="btn" onclick="add()">+ Add</button>
+      </div>
+</div>
+  </div>
+</div>
+
+<script>
+let cart = 0;
+
+function add(){
+  cart++;
+  document.querySelector(".cart").innerText = "Cart: " + cart;
+}
+</script>
+</body>
+</html>

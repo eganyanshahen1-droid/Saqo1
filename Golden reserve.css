@@ -1,0 +1,314 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    overflow-x:hidden;
+}
+.header{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:70px;
+    background:rgba(0,0,0,0.95);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 40px;
+    z-index:1000;
+
+    border-bottom:1px solid #111;
+}
+
+.logo{
+    font-size:18px;
+    font-weight:600;
+    letter-spacing:3px;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:14px;
+    position:relative;
+    transition:0.3s;
+}
+
+.nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0%;
+    height:2px;
+    background:#d4af37;
+    transition:0.3s;
+}
+
+.nav a:hover{
+    color:#d4af37;
+}
+
+.nav a:hover::after{
+    width:100%;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    display:flex;
+    height:100vh;
+}
+
+.hero-left,
+.hero-right{
+    width:50%;
+    position:relative;
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-left{
+    background:url('./images/ChatGPT Image Mar 20, 2026, 07_22_18 PM.png') center/cover;
+}
+
+.hero-right{
+    background:url('./images/cc1.jpg') center/cover;
+}
+
+.hero-left::after,
+.hero-right::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        to right,
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.3)
+    );
+}
+
+.hero-text{
+    position:absolute;
+    top:50%;
+    left:60px;
+    transform:translateY(-50%);
+    z-index:2;
+    max-width:500px;
+}
+
+.hero-text h1{
+    font-size:52px;
+    font-weight:300;
+    line-height:1.15;
+}
+
+.hero-text p{
+    margin-top:20px;
+    color:#bbb;
+    font-size:15px;
+    line-height:1.6;
+}
+
+/* =========================
+   PRICE BAR
+========================= */
+
+.price-bar{
+    text-align:center;
+    padding:18px;
+    font-style:italic;
+
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+
+    color:#ccc;
+}
+
+/* =========================
+   FULL IMAGE
+========================= */
+
+.full-img{
+    width:100%;
+    height:80vh;
+
+    background:
+    url('./images/տաբլե.avif') center/cover;
+}
+
+/* =========================
+   SECOND HERO
+========================= */
+
+.hero.reverse .hero-left{
+    background:url('./images/cc2.jpg') center/cover;
+}
+
+.hero.reverse .hero-right{
+    background:url('./images/cc3.jpg') center/cover;
+}
+
+.hero.reverse .hero-text{
+    left:auto;
+    right:60px;
+    text-align:right;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fill,minmax(250px,1fr));
+
+    gap:12px;
+    padding:50px;
+}
+
+.gallery img{
+    width:100%;
+    height:260px;
+
+    object-fit:cover;
+
+    transition:0.4s;
+    cursor:pointer;
+}
+
+.gallery img:hover{
+    transform:scale(1.04);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    text-align:center;
+    padding:40px;
+
+    background:#0a0a0a;
+    color:#777;
+
+    font-size:14px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .header{
+        padding:0 20px;
+    }
+
+    .hero{
+        flex-direction:column;
+        height:auto;
+    }
+
+    .hero-left,
+    .hero-right{
+        width:100%;
+        height:50vh;
+    }
+
+    .hero-text{
+        left:20px;
+        right:20px;
+        max-width:100%;
+    }
+
+    .hero-text h1{
+        font-size:34px;
+    }
+
+    .hero.reverse .hero-text{
+        right:20px;
+        text-align:left;
+    }
+
+    .gallery{
+        padding:20px;
+        gap:10px;
+    }
+
+    .gallery img{
+        height:200px;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .header{
+        flex-direction:column;
+        justify-content:center;
+        gap:8px;
+
+        height:auto;
+        padding:12px;
+    }
+
+    .logo{
+        font-size:14px;
+    }
+
+    .nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:14px;
+    }
+
+    .nav a{
+        font-size:12px;
+    }
+
+    .hero-text h1{
+        font-size:26px;
+    }
+
+    .hero-left,
+    .hero-right{
+        height:42vh;
+    }
+
+    .full-img{
+        height:50vh;
+    }
+
+    .gallery img{
+        height:160px;
+    }
+
+    .price-bar{
+        font-size:13px;
+        padding:14px;
+    }
+}
