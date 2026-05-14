@@ -114,3 +114,528 @@ body {
     padding: 0;
     margin: 0;
 }
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#050505;
+    font-family:'Inter',sans-serif;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:90px;
+
+    background:rgba(0,0,0,0.75);
+
+    -webkit-backdrop-filter:blur(12px);
+    backdrop-filter:blur(12px);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 40px;
+
+    z-index:1000;
+}
+
+/* LOGO */
+
+.logo{
+    color:#d4af37;
+
+    font-size:34px;
+
+    letter-spacing:6px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-weight:700;
+}
+
+/* MENU BUTTON */
+
+.menu-btn{
+    display:none;
+
+    color:white;
+
+    font-size:38px;
+
+    cursor:pointer;
+}
+
+/* NAV */
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:35px;
+}
+
+.nav a{
+    color:white;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    transition:0.3s;
+
+    position:relative;
+}
+
+.nav a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-6px;
+
+    width:0%;
+    height:2px;
+
+    background:#d4af37;
+
+    transition:0.3s;
+}
+
+.nav a:hover{
+    color:#d4af37;
+}
+
+.nav a:hover::after{
+    width:100%;
+}
+
+/* =========================
+   PAGE TITLE
+========================= */
+
+.page-title{
+    padding-top:140px;
+
+    text-align:center;
+
+    margin-bottom:50px;
+}
+
+.page-title h1{
+    font-size:70px;
+
+    color:#d4af37;
+
+    font-family:'Cormorant Garamond',serif;
+
+    letter-spacing:5px;
+}
+
+.page-title p{
+    color:#aaa;
+
+    margin-top:10px;
+
+    font-size:16px;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.container{
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:35px;
+
+    padding:0 50px 60px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.menu-card{
+    background:#f5f1e8;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    transition:0.4s;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,0.4);
+}
+
+.menu-card:hover{
+    transform:translateY(-8px);
+}
+
+/* IMAGE */
+
+.menu-img{
+    width:100%;
+    height:280px;
+
+    object-fit:cover;
+}
+
+/* CONTENT */
+
+.card-content{
+    padding:30px;
+}
+
+/* TITLE */
+
+.menu-card h1{
+    color:#111;
+
+    font-size:28px;
+
+    margin-bottom:25px;
+
+    font-family:'Cormorant Garamond',serif;
+}
+
+/* LIST */
+
+.menu-list{
+    padding-left:20px;
+}
+
+/* ITEM */
+
+.menu-item{
+    color:#111;
+
+    margin-bottom:14px;
+
+    font-size:16px;
+
+    line-height:1.5;
+}
+
+.menu-item span{
+    display:block;
+
+    font-size:13px;
+
+    color:#666;
+
+    margin-top:2px;
+}
+
+/* BRAND */
+
+.brand{
+    margin-top:25px;
+
+    color:#d4af37;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    text-align:center;
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+@media(max-width:768px){
+
+/* HEADER */
+
+.header{
+    height:85px;
+
+    padding:0 20px;
+}
+
+/* LOGO */
+
+.logo{
+    font-size:24px;
+
+    letter-spacing:3px;
+}
+
+/* MENU BTN */
+
+.menu-btn{
+    display:block;
+
+    z-index:3000;
+}
+
+/* NAV */
+
+.nav{
+    position:fixed;
+
+    top:0;
+    right:-100%;
+
+    width:80%;
+    height:100vh;
+
+    background:#050505;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:0;
+
+    padding-top:120px;
+
+    transition:0.5s ease;
+
+    border-left:
+    1px solid rgba(255,255,255,0.06);
+}
+
+/* ACTIVE */
+
+.nav.active{
+    right:0;
+}
+
+/* LINKS */
+
+.nav a{
+    width:100%;
+
+    padding:28px 35px;
+
+    font-size:20px;
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.06);
+}
+
+/* TITLE */
+
+.page-title{
+    padding-top:120px;
+}
+
+.page-title h1{
+    font-size:42px;
+}
+
+/* GRID */
+
+.container{
+    grid-template-columns:1fr;
+
+    padding:0 18px 40px;
+
+    gap:25px;
+}
+
+/* CARD */
+
+.menu-card{
+    border-radius:20px;
+}
+
+/* IMAGE */
+
+.menu-img{
+    height:220px;
+}
+
+/* TITLE */
+
+.menu-card h1{
+    font-size:24px;
+}
+
+/* ITEM */
+
+.menu-item{
+    font-size:15px;
+}
+
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:480px){
+
+.logo{
+    font-size:20px;
+}
+
+.menu-btn{
+    font-size:34px;
+}
+
+.nav{
+    width:85%;
+}
+
+.nav a{
+    font-size:18px;
+
+    padding:24px 30px;
+}
+
+.page-title h1{
+    font-size:36px;
+}
+
+.page-title p{
+    font-size:14px;
+}
+
+.menu-img{
+    height:200px;
+}
+
+.card-content{
+    padding:22px;
+}
+
+.menu-card h1{
+    font-size:22px;
+}
+
+.menu-item{
+    font-size:14px;
+}
+
+.menu-item span{
+    font-size:12px;
+}
+
+}
+/* =========================
+   MOBILE FIX
+========================= */
+
+@media(max-width:768px){
+
+.container{
+
+    display:grid;
+
+    grid-template-columns:1fr; /* ՄԻԱՅՆ 1 ՔԱՐՏ */
+
+    gap:25px;
+
+    padding:120px 15px 40px;
+}
+
+/* CARD */
+
+.menu-card{
+    width:100%;
+}
+
+/* IMAGE */
+
+.menu-img{
+    width:100%;
+    height:220px;
+
+    object-fit:cover;
+}
+
+/* TEXT */
+
+.menu-card h1{
+    font-size:28px;
+
+    line-height:1.2;
+}
+
+.menu-item{
+    font-size:16px;
+
+    line-height:1.6;
+}
+
+.menu-item span{
+    font-size:13px;
+}
+
+/* HEADER */
+
+.header{
+    padding:0 20px;
+}
+
+/* MENU */
+
+.nav{
+    width:80%;
+}
+
+}
+
+/* =========================
+   SMALL PHONE
+========================= */
+
+@media(max-width:480px){
+
+.container{
+    padding:110px 12px 30px;
+}
+
+.menu-card{
+    border-radius:18px;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.menu-card h1{
+    font-size:22px;
+}
+
+.menu-item{
+    font-size:14px;
+}
+
+.menu-item span{
+    font-size:12px;
+}
+
+.menu-img{
+    height:190px;
+}
+
+}

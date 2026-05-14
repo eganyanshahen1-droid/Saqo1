@@ -1,190 +1,337 @@
-   /* BODY */
-    body {
-        margin: 0;
-        background: rgb(0, 0, 0);
-        width: 100%;
-        height: 30px;
-        direction: center;
-    }
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    overflow-x:hidden;
+    font-family:'Inter',sans-serif;
+}
+
+/* =========================
+   HERO SLIDER
+========================= */
+
+.slider{
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+}
+
+/* SLIDES */
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition:1.2s;
+}
+
+.slide.active{
+    opacity:1;
+}
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* DARK OVERLAY */
+
+.slide::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.7)
+    );
+}
+
+/* =========================
+   HEADER
+========================= */
+
 .header{
     position:fixed;
     top:0;
+    left:0;
+
     width:100%;
-    height:50px;
-    background:rgb(0, 0, 0);
+    height:90px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 35px;
+
+    z-index:1000;
+
+    background:rgba(0,0,0,0.35);
+    -webkit-backdrop-filter:blur(12px);
+    backdrop-filter:blur(12px);
+}
+
+/* LOGO */
+
+.logo{
+    color:#d4af37;
+
+    font-size:34px;
+
+    letter-spacing:6px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-weight:600;
+}
+
+/* NAVIGATION */
+
+.nav{
     display:flex;
     align-items:center;
-    justify-content:flex-end;
-    padding-right:40px;
-    z-index:1000;
+    gap:35px;
 }
+
 .nav a{
-    color:rgb(255, 255, 255);
+    color:white;
+
     text-decoration:none;
-    margin-left:30px;
-    font-size:18px;
-    transition:0.3s;
+
+    font-size:14px;
+
+    letter-spacing:1px;
+
     position:relative;
+
+    transition:0.3s;
 }
-/* HOVER EFFECT */
+
 .nav a::after{
     content:"";
+
     position:absolute;
-    width:0%;
-    height:2px;
-    background:gold;
+
     left:0;
-    bottom:-5px;
-    transition:0.3s;
+    bottom:-7px;
+
+    width:0%;
+    height:1px;
+
+    background:#d4af37;
+
+    transition:0.4s;
 }
+
+.nav a:hover{
+    color:#d4af37;
+}
+
 .nav a:hover::after{
     width:100%;
 }
-.nav a:hover{
-    color:gold;
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.menu-btn{
+    display:none;
+
+    color:white;
+
+    font-size:34px;
+
+    cursor:pointer;
 }
-/* SLIDER */
-.slider{
-width:100%;
-height:300px;
-overflow:hidden;
+
+/* =========================
+   HERO TEXT
+========================= */
+
+.overlay{
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    text-align:center;
+
+    z-index:10;
+
+    width:90%;
 }
-.slide{
-width:100%;
-height:100%;
-object-fit:cover;
-display:none;
+
+.overlay h1{
+    color:#d4af37;
+
+    font-size:110px;
+
+    letter-spacing:8px;
+
+    line-height:0.9;
+
+    font-family:'Cormorant Garamond',serif;
 }
-.logo {
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    font-weight: bold;
-    margin-right: auto;
+
+.overlay p{
+    color:#f0f0f0;
+
+    margin-top:25px;
+
+    font-size:17px;
+
+    line-height:1.8;
 }
-.slide.active{display:block;}
-/* MOBILE VERSION */
-@media (max-width: 768px) {
 
-    body {
-        background-size: cover;
-        background-position: center;
-        height: auto;
-    }
+/* =========================
+   BUTTONS
+========================= */
+.btn{
+    padding:16px 34px;
 
-    .header {
-        height: 60px;
-        padding-right: 15px;
-        justify-content: center; /* կենտրոնացնում ենք */
-    }
+    border-radius:50px;
 
-    .nav a {
-        margin-left: 15px;
-        font-size: 14px;
-    }
+    text-decoration:none;
 
-    .slider {
-        height: 200px; /* փոքրացնում ենք */
-    }
+    font-size:14px;
 
-    .slide {
-        height: 200px;
-    }
+    transition:0.4s;
 }
-/* MOBILE NAV FIX */
-@media (max-width: 600px){
 
-  .header {
-    display: flex;
-    flex-direction: row; /* ԱՄԵՆԱԿԱՐԵՎՈՐ */
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 15px;
-  }
-
-  .nav {
-    display: flex;
-    flex-direction: row; /* որ լինեն կողք կողքի */
-    flex-wrap: wrap; /* եթե տեղ չլինի, իջնի հաջորդ տող */
-    justify-content: center;
-  }
-
-  .nav a {
-    margin: 5px 10px;
-    font-size: 13px;
-  }
-
-  .logo {
-    font-size: 14px;
-  }
+.gold-btn{
+    background:#d4af37;
+    color:#000;
+    font-weight:600;
 }
-/* EXTRA SMALL (շատ փոքր էկրաններ) */
-@media (max-width: 480px) {
 
-    .header {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
-    }
+.gold-btn:hover{
+    background:#fff;
+}
 
-    .nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+.border-btn{
+    border:1px solid rgba(255,255,255,0.25);
+    color:#fff;
+}
 
-    .nav a {
-        margin: 10px 0;
-        font-size: 16px;
-    }
+.border-btn:hover{
+    background:#fff;
+    color:#000;
+}
 
-    .slider {
-        height: 150px;
-    }
+/* =========================
+   MOBILE
+========================= */
 
-    .slide {
-        height: 150px;
-    }
+@media(max-width:768px){
+
+.header{
+    height:85px;
+
+    padding:0 20px;
 }
- .slider {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+
+/* LOGO */
+
+.logo{
+    font-size:26px;
+
+    letter-spacing:4px;
 }
-/* SLIDE */
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out;
-  animation: fade 12s infinite;
+
+/* MENU BUTTON */
+
+.menu-btn{
+    display:block;
 }
-.slide img {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
+.menu-btn p{
+font-size:20px;
+  margin-top:4px;
 }
-/* ACTIVE SLIDE */
-.slide.active {
-  opacity: 1;
+/* NAV */
+
+.nav{
+    position:fixed;
+
+    top:85px;
+    right:-100%;
+
+    width:80%;
+    height:100vh;
+
+    background:#070707;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    padding-top:40px;
+
+    transition:0.5s;
+
+    gap:0;
 }
-/* TEXT */
-.overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+
+.nav.active{
+    right:0;
 }
-.overlay h1 {
-  font-size: 60px;
-  color: #caa85c;
+
+.nav a{
+    width:100%;
+    padding:28px 40px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    font-size:12px;
 }
-@keyframes fade {
-  0% { opacity: 0; }
-  10% { opacity: 1; }
-  30% { opacity: 1; }
-  40% { opacity: 0; }
-  100% { opacity: 0; }
+
+/* HERO */
+.overlay h1{
+    font-size:58px;
+    line-height:1;
+}
+.overlay p{
+    font-size:14px;
+}
+/* BUTTONS */
+.btn{
+    padding:16px 34px;
+    border-radius:50px;
+    text-decoration:none;
+    align-items:center;
+}
+.btn{
+    width:220px;
+    text-align:center;
+}
+}
+/* =========================
+   SMALL MOBILE
+========================= */
+@media(max-width:480px){
+.logo{
+    font-size:22px;
+}
+.overlay h1{
+    font-size:42px;
+}
+.overlay p{
+    font-size:13px;
+}
+.btn{
+    width:200px;
+}
 }
