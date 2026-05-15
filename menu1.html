@@ -1,16 +1,495 @@
  <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>GEKKO SUSHI MENU</title>
-<link rel="stylesheet" href="menu1.css">
+
 <link rel="icon" href="./images/logo.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+/* =========================
+BODY
+========================= */
+
+body{
+
+background:
+linear-gradient(
+135deg,
+#020202,
+#0b0b0b,
+#050505
+);
+
+font-family:'Inter',sans-serif;
+
+color:white;
+
+overflow-x:hidden;
+}
+
+/* =========================
+HEADER
+========================= */
+
+.header{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+height:90px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:0 60px;
+
+background:rgba(0,0,0,0.55);
+
+backdrop-filter:blur(18px);
+
+border-bottom:
+1px solid rgba(255,215,120,0.12);
+
+z-index:1000;
+}
+
+/* =========================
+LOGO
+========================= */
+
+.logo{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:38px;
+
+font-weight:700;
+
+letter-spacing:5px;
+
+background:
+linear-gradient(
+to right,
+#fff2b0,
+#d4af37,
+#fff2b0
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* =========================
+NAV
+========================= */
+
+.nav{
+
+display:flex;
+
+align-items:center;
+
+gap:38px;
+}
+
+.nav a{
+
+position:relative;
+
+text-decoration:none;
+
+color:white;
+
+font-size:14px;
+
+letter-spacing:2px;
+
+transition:0.4s;
+}
+
+.nav a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-8px;
+
+width:0%;
+
+height:2px;
+
+background:
+linear-gradient(
+to right,
+#d4af37,
+#fff2b0
+);
+
+transition:0.4s;
+}
+
+.nav a:hover{
+
+color:#f6d365;
+}
+
+.nav a:hover::after{
+
+width:100%;
+}
+
+/* =========================
+MENU BUTTON
+========================= */
+
+.menu-btn{
+
+display:none;
+
+font-size:30px;
+
+cursor:pointer;
+
+color:#f6d365;
+}
+
+/* =========================
+TITLE
+========================= */
+
+.page-title{
+
+padding-top:170px;
+
+padding-bottom:70px;
+
+text-align:center;
+}
+
+.page-title h1{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:90px;
+
+font-weight:700;
+
+letter-spacing:5px;
+
+margin-bottom:20px;
+
+background:
+linear-gradient(
+to bottom,
+#fff7d6,
+#f6d365,
+#b8860b
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.page-title p{
+
+font-size:18px;
+
+letter-spacing:2px;
+
+color:#ccc;
+}
+
+/* =========================
+CONTAINER
+========================= */
+
+.container{
+
+width:100%;
+
+padding:0 60px 100px;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:40px;
+}
+
+/* =========================
+CARD
+========================= */
+
+.menu-card{
+
+background:
+linear-gradient(
+145deg,
+rgba(20,20,20,0.98),
+rgba(8,8,8,0.98)
+);
+
+border-radius:30px;
+
+overflow:hidden;
+
+border:
+1px solid rgba(255,215,120,0.08);
+
+transition:0.5s;
+
+position:relative;
+}
+
+.menu-card:hover{
+
+transform:
+translateY(-12px)
+scale(1.02);
+
+border-color:
+rgba(255,215,120,0.25);
+
+box-shadow:
+0 20px 50px rgba(0,0,0,0.45);
+}
+
+/* =========================
+IMAGE
+========================= */
+
+.menu-img{
+
+width:100%;
+
+height:280px;
+
+object-fit:cover;
+
+transition:0.6s;
+}
+
+.menu-card:hover .menu-img{
+
+transform:scale(1.08);
+}
+
+/* =========================
+CARD CONTENT
+========================= */
+
+.card-content{
+
+padding:35px;
+}
+
+/* =========================
+CARD TITLE
+========================= */
+
+.card-content h1{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:40px;
+
+margin-bottom:30px;
+
+color:#fff2b0;
+
+letter-spacing:2px;
+}
+
+/* =========================
+MENU LIST
+========================= */
+
+.menu-list{
+
+list-style:none;
+}
+
+.menu-item{
+
+padding:18px 0;
+
+border-bottom:
+1px solid rgba(255,255,255,0.08);
+
+font-size:17px;
+
+font-weight:500;
+
+display:flex;
+
+flex-direction:column;
+
+gap:6px;
+
+color:#fff;
+}
+
+.menu-item span{
+
+font-size:13px;
+
+color:#bdbdbd;
+
+letter-spacing:1px;
+}
+
+/* =========================
+BRAND
+========================= */
+
+.brand{
+
+margin-top:35px;
+ text-align:right;
+
+font-size:14px;
+
+letter-spacing:3px;
+
+color:#f6d365;
+}
+
+/* =========================
+TABLET
+========================= */
+
+@media(max-width:992px){
+
+.header{
+
+padding:0 20px;
+}
+
+.nav{
+
+position:fixed;
+
+top:0;
+right:-100%;
+
+width:280px;
+
+height:100vh;
+
+background:
+rgba(0,0,0,0.98);
+
+flex-direction:column;
+
+justify-content:center;
+
+gap:35px;
+
+transition:0.5s;
+}
+
+.nav.active{
+
+right:0;
+}
+
+.menu-btn{
+
+display:block;
+}
+
+.container{
+
+padding:0 20px 80px;
+}
+
+.page-title h1{
+
+font-size:60px;
+}
+
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:480px){
+
+.logo{
+
+font-size:28px;
+}
+
+.page-title{
+
+padding-top:140px;
+}
+
+.page-title h1{
+
+font-size:42px;
+}
+
+.page-title p{
+
+font-size:14px;
+
+padding:0 10px;
+}
+
+.menu-img{
+
+height:220px;
+}
+
+.card-content{
+
+padding:25px;
+}
+
+.card-content h1{
+
+font-size:30px;
+}
+
+.menu-item{
+
+font-size:15px;
+}
+
+}
+
+</style>
 
 </head>
 
@@ -31,9 +510,13 @@ GEKKO
 <div class="nav">
 
 <a href="index.html">Home</a>
+
 <a href="order.html">Order</a>
+
 <a href="menu1.html">Menu Box</a>
+
 <a href="ceatring.html">Catering</a>
+
 <a href="./GOLDEN RESERVE X Gekko Sushi.html">
 Golden Reserve
 </a>
@@ -110,7 +593,7 @@ GEKKO SUSHI
 <div class="menu-card">
 
 <img src="./images/menu1.jpg"
-class="menu-img"alt="">
+class="menu-img" alt="">
 
 <div class="card-content">
 
@@ -158,7 +641,7 @@ GEKKO SUSHI
 <div class="menu-card">
 
 <img src="./images/menu1.jpg"
-class="menu-img"alt="">
+class="menu-img" alt="">
 
 <div class="card-content">
 
@@ -265,4 +748,5 @@ document.querySelector(".nav")
 </script>
 
 </body>
+
 </html>

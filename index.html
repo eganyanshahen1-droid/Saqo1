@@ -1,79 +1,151 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>GEKKO SUSHI</title>
-<link rel="stylesheet" href="index.css">
+
 <link rel="icon" href="./images/logo.png">
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-<style>
+<link rel="stylesheet" href="index.css">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 
-</style>
 </head>
+
 <body>
+
 <!-- HEADER -->
+
 <header class="header">
+
 <div class="logo">
-GEKKO SUSHI
+GEKKO
 </div>
-<!-- MOBILE BUTTON -->
+
 <div class="menu-btn" id="menuBtn">
-<p>☰</p>
+☰
 </div>
-<!-- NAV -->
+
 <nav class="nav" id="nav">
-<a href="index.html">Home</a>
-<a href="order.html">Order</a>
-<a href="menu1.html">Menu Box</a>
-<a href="ceatring.html">Catering</a>
+
+<a href="index.html">HOME</a>
+
+<a href="order.html">ORDER</a>
+
+<a href="menu1.html">MENU BOX</a>
+
+<a href="ceatring.html">CATERING</a>
+
 <a href="./GOLDEN RESERVE X Gekko Sushi.html">
-Golden Reserve
+GOLDEN RESERVE
 </a>
-<a href="Gallery.html">Gallery</a>
+
+<a href="Gallery.html">
+GALLERY
+</a>
+
 </nav>
+
 </header>
+
 <!-- HERO -->
-<section class="slider">
+
+<section class="hero">
+
+<!-- SLIDE 1 -->
+
 <div class="slide active">
-<img src="./images/slide 1.jpg" alt="Slide 1">
+<img src="./images/hero1.jpg" alt="">
 </div>
+
+<!-- SLIDE 2 -->
+
 <div class="slide">
-<img src="./images/slide 2.jpg" alt="Slide 2">
+<img src="./images/hero2.jpg" alt="">
 </div>
+
+<!-- SLIDE 3 -->
+
 <div class="slide">
-<img src="./images/slide3.jpg" alt="Slide 3">
+<img src="./images/hero3.jpg" alt="">
 </div>
+
 <!-- TEXT -->
+
 <div class="overlay">
+
 <h1>
 GEKKO<br>
 SUSHI
 </h1>
+
 <p>
 Luxury Japanese Dining Experience
 </p>
+
+<div class="hero-buttons">
+
+<a href="order.html" class="btn btn-gold">
+ORDER NOW
+</a>
+
+<a href="menu1.html" class="btn btn-dark">
+VIEW MENU
+</a>
+
 </div>
+
 </div>
+
+<div class="scroll">
+SCROLL DOWN
+</div>
+
 </section>
+
 <script>
-/* SLIDER */
-let slides = document.querySelectorAll(".slide");
+
+/* =========================
+SLIDER
+========================= */
+
+let slides =
+document.querySelectorAll(".slide");
+
 let index = 0;
+
 setInterval(() => {
-slides[index].classList.remove("active");
-index = (index + 1) % slides.length;
-slides[index].classList.add("active");
+
+slides[index]
+.classList.remove("active");
+
+index = (index + 1)
+% slides.length;
+
+slides[index]
+.classList.add("active");
+
 },4000);
-/* MOBILE MENU */
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.getElementById("nav");
+
+/* =========================
+MOBILE MENU
+========================= */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const nav =
+document.getElementById("nav");
+
 menuBtn.onclick = () => {
+
 nav.classList.toggle("active");
+
 }
+
 </script>
+
 </body>
 </html>

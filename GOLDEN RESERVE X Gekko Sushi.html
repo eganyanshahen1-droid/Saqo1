@@ -1,26 +1,588 @@
  <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="Golden reserve.css">
+
 <title>Golden Reserve x Gekko Sushi</title>
+
+<link rel="icon" href="./images/logo.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+/* =========================
+BODY
+========================= */
+
+body{
+
+background:#050505;
+
+font-family:'Montserrat',sans-serif;
+
+color:white;
+
+overflow-x:hidden;
+}
+
+/* =========================
+HEADER
+========================= */
+
+.header{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:90px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:0 60px;
+
+background:rgba(0,0,0,0.45);
+
+backdrop-filter:blur(18px);
+
+border-bottom:
+1px solid rgba(255,215,120,0.12);
+
+z-index:1000;
+}
+
+/* =========================
+LOGO
+========================= */
+
+.logo{
+
+font-family:'Cinzel',serif;
+
+font-size:30px;
+
+font-weight:900;
+
+letter-spacing:4px;
+
+background:
+linear-gradient(
+to right,
+#fff2b0,
+#d4af37,
+#fff2b0
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* =========================
+NAV
+========================= */
+
+.nav{
+
+display:flex;
+
+align-items:center;
+
+gap:40px;
+}
+
+.nav a{
+
+position:relative;
+
+text-decoration:none;
+
+color:white;
+
+font-size:14px;
+
+letter-spacing:2px;
+
+transition:0.4s;
+}
+
+.nav a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-8px;
+
+width:0%;
+
+height:2px;
+
+background:
+linear-gradient(
+to right,
+#d4af37,
+#fff2b0
+);
+
+transition:0.4s;
+}
+
+.nav a:hover{
+
+color:#f6d365;
+}
+
+.nav a:hover::after{
+
+width:100%;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+
+width:100%;
+
+min-height:100vh;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+}
+
+/* =========================
+LEFT
+========================= */
+
+.hero-left{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:100px;
+
+background:
+linear-gradient(
+135deg,
+#000,
+#111,
+#000
+);
+
+position:relative;
+}
+
+.hero-left::before{
+
+content:"";
+
+position:absolute;
+
+width:450px;
+height:450px;
+
+background:
+radial-gradient(
+rgba(212,175,55,0.25),
+transparent
+);
+
+border-radius:50%;
+
+filter:blur(50px);
+}
+
+/* =========================
+RIGHT
+========================= */
+
+.hero-right{
+
+background:
+url("./images/caviar-hero.jpg")
+center/cover no-repeat;
+
+position:relative;
+}
+
+.hero-right::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+rgba(0,0,0,0.2),
+rgba(0,0,0,0.55)
+);
+}
+
+/* =========================
+TEXT
+========================= */
+
+.hero-text{
+
+position:relative;
+
+z-index:5;
+
+max-width:550px;
+}
+
+.hero-text h1{
+
+font-family:'Cinzel',serif;
+
+font-size:68px;
+
+line-height:1.1;
+
+font-weight:900;
+
+margin-bottom:30px;
+
+background:
+linear-gradient(
+to bottom,
+#fff7d6,
+#f6d365,
+#b8860b
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero-text p{
+
+font-size:20px;
+
+line-height:1.8;
+
+color:#ddd;
+}
+
+/* =========================
+PRICE BAR
+========================= */
+
+.price-bar{
+
+padding:22px;
+
+text-align:center;
+
+font-size:16px;
+
+letter-spacing:3px;
+
+background:
+linear-gradient(
+90deg,
+#0f0f0f,
+#1a1a1a,
+#0f0f0f
+);
+
+border-top:
+1px solid rgba(255,215,120,0.15);
+
+border-bottom:
+1px solid rgba(255,215,120,0.15);
+
+color:#f6d365;
+}
+
+/* =========================
+FULL IMAGE
+========================= */
+
+.full-img{
+
+width:100%;
+
+height:100vh;
+
+background:
+url("./images/caviar-banner.jpg")
+center/cover fixed no-repeat;
+
+position:relative;
+}
+
+.full-img::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+rgba(0,0,0,0.25),
+rgba(0,0,0,0.7)
+);
+}
+
+/* =========================
+SECOND HERO
+========================= */
+
+.reverse .hero-left{
+
+background:
+url("./images/caviar-service.jpg")
+center/cover no-repeat;
+}
+
+.reverse .hero-left::before{
+
+display:none;
+}
+
+.reverse .hero-right{
+
+display:flex;
+align-items:center;
+
+justify-content:center;
+
+padding:100px;
+
+background:
+linear-gradient(
+135deg,
+#050505,
+#111,
+#050505
+);
+}
+
+/* =========================
+GALLERY
+========================= */
+
+.gallery{
+
+padding:100px 60px;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:25px;
+}
+
+.gallery img{
+
+width:100%;
+
+height:350px;
+
+object-fit:cover;
+
+border-radius:25px;
+
+transition:0.5s;
+
+border:
+1px solid rgba(255,215,120,0.1);
+}
+
+.gallery img:hover{
+
+transform:
+translateY(-10px)
+scale(1.03);
+
+box-shadow:
+0 20px 40px rgba(0,0,0,0.5);
+
+border-color:
+rgba(255,215,120,0.35);
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.footer{
+
+padding:40px;
+
+text-align:center;
+
+font-size:15px;
+
+letter-spacing:2px;
+
+color:#aaa;
+
+border-top:
+1px solid rgba(255,215,120,0.1);
+
+background:#080808;
+}
+
+/* =========================
+TABLET
+========================= */
+
+@media(max-width:992px){
+
+.header{
+
+padding:0 20px;
+}
+
+.nav{
+
+gap:20px;
+}
+
+.hero{
+
+grid-template-columns:1fr;
+}
+
+.hero-left,
+.reverse .hero-right{
+
+padding:70px 30px;
+}
+
+.hero-text h1{
+
+font-size:48px;
+}
+
+.full-img{
+
+height:70vh;
+}
+
+.gallery{
+
+padding:70px 20px;
+}
+
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:600px){
+
+.logo{
+
+font-size:20px;
+}
+
+.nav{
+
+display:none;
+}
+
+.hero-text h1{
+
+font-size:34px;
+}
+
+.hero-text p{
+
+font-size:16px;
+}
+
+.price-bar{
+
+font-size:12px;
+
+padding:18px;
+
+line-height:1.8;
+}
+
+.gallery{
+
+grid-template-columns:1fr;
+}
+
+.gallery img{
+
+height:260px;
+}
+
+.footer{
+
+font-size:13px;
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
+
 <!-- HEADER -->
+
 <header class="header">
+
 <div class="logo">
 GEKKO SUSHI
 </div>
+
 <nav class="nav">
+
 <a href="index.html">Home</a>
+
 <a href="order.html">Order</a>
+
 <a href="menu1.html">Menu Box</a>
+
 <a href="ceatring.html">Catering</a>
+
 <a href="./GOLDEN RESERVE X Gekko Sushi.html">
 Golden Reserve
 </a>
+
 </nav>
+
 </header>
 
 <!-- HERO -->
@@ -107,4 +669,5 @@ Made with ❤️ | Golden Reserve x Gekko Sushi
 </footer>
 
 </body>
+
 </html>
