@@ -1,597 +1,127 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GEKKO • IMPERIAL RESERVE</title>
+<title>Royal Catering</title>
 
-<link rel="icon" href="./images/logo.png">
-<link rel="stylesheet" href="catering.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
-
-/* =========================
-   BODY
-========================= */
 
 body{
-
-    min-height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    overflow-x:hidden;
-
-    padding:50px 20px;
-
-    background:
-
-    radial-gradient(circle at top left,
-    rgba(255,215,0,0.12),
-    transparent 28%),
-
-    radial-gradient(circle at bottom right,
-    rgba(255,215,0,0.08),
-    transparent 30%),
-
-    linear-gradient(
-    rgba(0,0,0,0.92),
-    rgba(0,0,0,0.95)
-    ),
-
-    url("./images/ceatring.jpg");
-
-    background-size:cover;
-    background-position:center;
-
-    font-family:'Montserrat', sans-serif;
+background:#050505;
+font-family:'Montserrat',sans-serif;
+color:white;
+display:flex;
+justify-content:center;
+padding:40px 20px;
 }
 
-/* =========================
-   ULTRA LUXURY BOX
-========================= */
-
-.ultra-box{
-
-    width:100%;
-    max-width:980px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    border-radius:45px;
-
-    background:
-
-    linear-gradient(
-    145deg,
-    rgba(18,18,18,0.97),
-    rgba(6,6,6,0.99)
-    );
-
-    border:1px solid rgba(255,215,120,0.18);
-
-    -webkit-backdrop-filter: blur(22px);
-    backdrop-filter: blur(22px);
-
-    box-shadow:
-
-    0 0 120px rgba(0,0,0,0.95),
-
-    0 0 45px rgba(255,215,120,0.10),
-
-    inset 0 0 25px rgba(255,215,120,0.03);
+.container{
+width:100%;
+max-width:850px;
+background:#0c0c0c;
+border:1px solid rgba(255,215,120,0.1);
+border-radius:35px;
+padding:50px;
 }
 
-/* GOLD LIGHT */
-
-.ultra-box::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:-250px;
-    left:-250px;
-
-    width:600px;
-    height:600px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-    rgba(255,215,0,0.20),
-    transparent 70%
-    );
+.top-text{
+text-align:center;
+margin-bottom:45px;
 }
 
-.ultra-box::after{
-
-    content:"";
-
-    position:absolute;
-
-    bottom:-250px;
-    right:-250px;
-
-    width:650px;
-    height:650px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(
-    rgba(255,215,0,0.12),
-    transparent 70%
-    );
+.top-text h1{
+font-size:70px;
+font-family:'Cinzel',serif;
+color:#fff2b6;
+line-height:1.1;
 }
 
-/* =========================
-   MULTI BORDER
-========================= */
-
-.border1,
-.border2,
-.border3{
-
-    position:absolute;
-
-    pointer-events:none;
+.top-text p{
+margin-top:20px;
+color:#aaa;
 }
-
-.border1{
-
-    inset:14px;
-
-    border:1px solid rgba(255,215,120,0.16);
-
-    border-radius:36px;
-}
-
-.border2{
-
-    inset:28px;
-
-    border:1px solid rgba(255,215,120,0.08);
-
-    border-radius:28px;
-}
-
-.border3{
-
-    inset:42px;
-
-    border:1px solid rgba(255,215,120,0.05);
-
-    border-radius:22px;
-}
-
-/* =========================
-   CLOSE BUTTON
-========================= */
-
-.close-btn{
-
-    position:absolute;
-
-    top:30px;
-    right:35px;
-
-    color:white;
-
-    text-decoration:none;
-
-    font-size:32px;
-
-    z-index:30;
-
-    transition:0.5s;
-}
-
-.close-btn:hover{
-
-    color:#f6d365;
-
-    transform:rotate(180deg) scale(1.2);
-}
-
-/* =========================
-   TOP SECTION
-========================= */
-
-.top{
-
-    position:relative;
-
-    z-index:10;
-
-    text-align:center;
-
-    padding:90px 60px 50px;
-}
-
-/* MINI */
-
-.top .mini{
-
-    color:#d4af37;
-
-    font-size:12px;
-
-    letter-spacing:7px;
-
-    font-weight:600;
-}
-
-/* TITLE */
-
-.top h1{
-
-    font-family:'Cinzel', serif;
-
-    font-size:82px;
-
-    letter-spacing:10px;
-
-    font-weight:900;
-
-    margin-top:20px;
-
-    color:#fff4c7;
-
-    text-shadow:
-
-    0 0 20px rgba(255,215,120,0.30),
-
-    0 0 45px rgba(255,215,120,0.15);
-}
-
-/* GOLD LINE */
-
-.gold-line{
-
-    width:220px;
-    height:2px;
-
-    margin:30px auto;
-
-    background:
-
-    linear-gradient(
-    to right,
-    transparent,
-    #f6d365,
-    #fff5c5,
-    #f6d365,
-    transparent
-    );
-}
-
-/* TEXT */
-
-.top p{
-
-    max-width:720px;
-
-    margin:auto;
-
-    color:#d8d8d8;
-
-    line-height:2;
-
-    font-size:16px;
-
-    font-family:'Cormorant Garamond', serif;
-
-    letter-spacing:1px;
-}
-
-/* =========================
-   FORM
-[15.05.2026 21:39] links: ========================= */
 
 form{
-
-    position:relative;
-
-    z-index:10;
-
-    padding:0 60px 65px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
 }
 
-/* GRID */
-
-.grid{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:26px;
+.input-box{
+display:flex;
+flex-direction:column;
 }
 
-/* FULL */
+.input-box label{
+margin-bottom:10px;
+font-size:13px;
+letter-spacing:2px;
+color:#f6d365;
+font-weight:700;
+}
+
+.input-box input,
+.input-box textarea,
+.input-box select{
+padding:18px;
+border:none;
+border-radius:18px;
+background:#161616;
+color:white;
+outline:none;
+}
+
+textarea{
+height:180px;
+resize:none;
+}
 
 .full{
-    grid-column:1/-1;
+grid-column:1/3;
 }
-
-/* LABEL */
-
-label{
-
-    display:block;
-
-    margin-bottom:10px;
-
-    color:#f6d365;
-
-    font-size:12px;
-
-    font-weight:600;
-
-    letter-spacing:3px;
-}
-
-/* INPUTS */
-
-input,
-select,
-textarea{
-
-    width:100%;
-
-    padding:20px 22px;
-
-    border-radius:20px;
-
-    outline:none;
-
-    border:1px solid rgba(255,255,255,0.05);
-
-    background:
-
-    linear-gradient(
-    rgba(255,255,255,0.05),
-    rgba(255,255,255,0.02)
-    );
-
-    color:white;
-
-    font-size:14px;
-
-    transition:0.45s;
-}
-
-/* PLACEHOLDER */
-
-input::placeholder,
-textarea::placeholder{
-    color:#9c9c9c;
-}
-
-/* FOCUS */
-
-input:focus,
-select:focus,
-textarea:focus{
-
-    border-color:#f6d365;
-
-    background:
-
-    linear-gradient(
-    rgba(255,255,255,0.08),
-    rgba(255,255,255,0.04)
-    );
-
-    box-shadow:
-
-    0 0 30px rgba(246,211,101,0.18);
-}
-
-/* TEXTAREA */
-
-textarea{
-
-    resize:none;
-
-    height:190px;
-}
-
-/* CHECKBOX */
-
-.checkbox{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-}
-
-.checkbox input{
-
-    width:auto;
-
-    accent-color:#f6d365;
-}
-
-.checkbox label{
-
-    margin:0;
-
-    color:#d4d4d4;
-
-    font-size:13px;
-
-    letter-spacing:1px;
-}
-
-/* =========================
-   BUTTON
-========================= */
 
 .btn{
-
-    width:100%;
-
-    padding:22px;
-
-    border:none;
-
-    border-radius:24px;
-
-    cursor:pointer;
-
-    font-size:15px;
-
-    font-weight:700;
-
-    letter-spacing:5px;
-
-    color:black;
-
-    transition:0.6s;
-
-    background-size:400%;
-
-    background-image:
-
-    linear-gradient(
-    90deg,
-    #6e5110,
-    #d4af37,
-    #fff2b0,
-    #f6d365,
-    #fff9dc,
-    #b8860b,
-    #6e5110
-    );
-
-    box-shadow:
-
-    0 15px 35px rgba(246,211,101,0.14);
+grid-column:1/3;
+height:70px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-weight:800;
+letter-spacing:4px;
+background:linear-gradient(135deg,#d4af37,#f6d365,#fff2b0);
 }
-
-/* HOVER */
-
-.btn:hover{
-
-    transform:translateY(-6px) scale(1.01);
-
-    background-position:right;
-
-    box-shadow:
-
-    0 25px 50px rgba(246,211,101,0.24);
-}
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:768px){
 
-    .top{
-        padding:70px 20px 35px;
-    }
-
-    .top h1{
-        font-size:46px;
-        letter-spacing:5px;
-    }
-
-    .top p{
-        font-size:14px;
-    }
-
-    form{
-        padding:0 20px 40px;
-    }
-
-    .grid{
-        grid-template-columns:1fr;
-    }
-
+form{
+grid-template-columns:1fr;
 }
 
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media(max-width:480px){
-
-    body{
-        padding:15px 10px;
-    }
-
-    .ultra-box{
-        border-radius:28px;
-    }
-
-    .top h1{
-        font-size:32px;
-    }
-
-    .top .mini{
-        font-size:10px;
-        letter-spacing:4px;
-    }
-
-    input,
-    select,
-    textarea{
-        padding:16px;
-        font-size:13px;
-    }
-
-    textarea{
-        height:150px;
-    }
-
-    .btn{
-        padding:18px;
-        font-size:13px;
-        letter-spacing:2px;
-    }
-
+.full{
+grid-column:auto;
 }
 
-/* =========================
-   320PX
-========================= */
+.btn{
+grid-column:auto;
+}
 
-@media(max-width:320px){
-
-    .top h1{
-        font-size:24px;
-        letter-spacing:2px;
-    }
-
-    .close-btn{
-        top:18px;
-        right:18px;
-        font-size:24px;
-    }
+.top-text h1{
+font-size:45px;
+}
 
 }
 
@@ -601,137 +131,62 @@ textarea{
 
 <body>
 
-<div class="ultra-box">
+<div class="container">
 
-<div class="border1"></div>
-<div class="border2"></div>
-<div class="border3"></div>
+<div class="top-text">
 
-<a href="index.html" class="close-btn">✕</a>
-
-<div class="top">
-
-<div class="mini">
-GEKKO SUSHI • IMPERIAL RESERVE EXPERIENCE
-</div>
-
-<h1>ROYAL CATERING</h1>
-
-<div class="gold-line"></div>
+<h1>
+ROYAL<br>
+CATERING
+</h1>
 
 <p>
-An elite Japanese dining ceremony designed for luxury weddings,
-private royal dinners, VIP celebrations and unforgettable experiences.
-Every detail is crafted with elegance, prestige and perfection.
+Luxury Japanese catering reservation.
 </p>
 
 </div>
 
-<form onsubmit="sendOrder(event)">
+<form action="send.php" method="POST">
 
-<div class="grid">
-
-<div>
+<div class="input-box">
 <label>FULL NAME</label>
-<input type="text" required placeholder="Enter your full name">
+<input type="text" name="fullname" required placeholder="Enter your full name" title="Full name">
 </div>
 
-<div>
+<div class="input-box">
 <label>PHONE NUMBER</label>
-<input type="text" required placeholder="+374 00 000000">
+<input type="text" name="phone" required placeholder="Enter your phone number" title="Phone number">
 </div>
 
-<div>
+<div class="input-box">
 <label>EMAIL ADDRESS</label>
-[15.05.2026 21:39] links: <input type="email" required placeholder="example@gmail.com">
+<input type="email" name="email" required placeholder="Enter your email address" title="Email address">
 </div>
 
-<div>
-<label>COMPANY NAME</label>
-<input type="text" placeholder="Optional">
-</div>
+<div class="input-box">
+<label>NUMBER OF GUESTS</label>
 
-<div>
-<label for="guest-count">NUMBER OF GUESTS</label>
-<select id="guest-count" title="Number of guests">
+<select name="guests" title="Number of guests">
+<option value="" disabled selected>Select guest count</option>
 <option>10 Guests</option>
 <option>20 Guests</option>
-<option>30 Guests</option>
 <option>50 Guests</option>
-<option>100+ Guests</option>
 </select>
+
 </div>
 
-<div>
-<label for="service-type">SERVICE TYPE</label>
-<select id="service-type" title="Service type">
-<option>Luxury Delivery</option>
-<option>Private On-site Experience</option>
-</select>
-</div>
-
-<div>
-<label for="event-date">EVENT DATE</label>
-<input type="date" id="event-date" title="Event date">
-</div>
-
-<div>
-<label for="event-time">EVENT TIME</label>
-<input type="time" id="event-time" title="Event time">
-</div>
-
-<div class="full">
-<label for="event-type">EVENT TYPE</label>
-<select id="event-type" title="Event type">
-<option>Royal Wedding</option>
-<option>VIP Business Event</option>
-<option>Luxury Birthday Celebration</option>
-<option>Private Imperial Dinner</option>
-<option>Exclusive VIP Party</option>
-</select>
-</div>
-
-<div class="full">
+<div class="input-box full">
 <label>SPECIAL REQUESTS</label>
-<textarea placeholder="Describe your dream imperial catering experience..."></textarea>
+<textarea name="message" placeholder="Enter any special requests" title="Special requests"></textarea>
 </div>
 
-<div class="full checkbox">
-
-<input type="checkbox" id="check">
-
-<label for="check">
-I agree to receive VIP invitations and exclusive luxury offers
-</label>
-
-</div>
-
-<div class="full">
-
-<button class="btn" type="submit">
+<button type="submit" class="btn">
 RESERVE IMPERIAL EXPERIENCE
 </button>
-
-</div>
-
-</div>
 
 </form>
 
 </div>
 
-<script>
-
-function sendOrder(e){
-
-    e.preventDefault();
-
-    alert("👑 Imperial Reservation Sent!");
-
-}
-
-</script>
-
 </body>
-
 </html>

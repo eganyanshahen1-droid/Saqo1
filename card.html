@@ -1,0 +1,160 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GEKKO CART</title>
+<link rel="stylesheet" href="card.css">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="logo">
+GEKKO
+</div>
+
+<a href="order.html" class="back">
+← Back
+</a>
+
+</div>
+
+<!-- TITLE -->
+
+<div class="title">
+
+<h1>
+YOUR CART
+</h1>
+
+<p>
+Luxury Sushi Selection
+</p>
+
+</div>
+
+<!-- CART -->
+
+<div class="cart-container" id="cart-container">
+
+</div>
+
+<!-- TOTAL -->
+
+<div class="total-box">
+
+<h1>
+TOTAL: $<span id="total">0</span>
+</h1>
+
+<button class="checkout">
+CHECKOUT
+</button>
+
+</div>
+
+<script>
+
+/* LOAD CART */
+
+let cart =
+JSON.parse(localStorage.getItem("gekko-cart")) || [];
+
+const container =
+document.getElementById("cart-container");
+
+const total =
+document.getElementById("total");
+
+/* SHOW CART */
+
+function renderCart(){
+
+container.innerHTML = "";
+
+let totalPrice = 0;
+
+if(cart.length === 0){
+
+container.innerHTML =
+`<div class="empty">
+Your cart is empty
+</div>`;
+
+total.innerHTML = 0;
+
+return;
+
+}
+
+cart.forEach((item,index)=>{
+
+totalPrice += item.price;
+
+container.innerHTML += `
+
+<div class="cart-item">
+
+<img src="${item.image}">
+
+<div class="info">
+
+<h2>${item.name}</h2>
+
+<div class="price">
+$${item.price}
+</div>
+
+</div>
+
+<button class="remove"
+onclick="removeItem(${index})">
+
+Remove
+
+</button>
+
+</div>
+
+`;
+
+});
+
+total.innerHTML = totalPrice;
+
+}
+
+/* REMOVE */
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+localStorage.setItem(
+"gekko-cart",
+JSON.stringify(cart)
+);
+
+renderCart();
+
+}
+
+/* START */
+
+renderCart();
+
+</script>
+
+</body>
+
+</html>

@@ -6,12 +6,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GEKKO SUSHI</title>
+<title>GEKKO SUSHI ORDER</title>
 
-<link rel="icon" href="logo.jpg">
-<link rel="stylesheet" href="order.css">
+<link rel="icon" href="./images/logo.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
+<link rel="stylesheet" href="order.css">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 
@@ -20,33 +20,55 @@
 
 <body>
 
-<!-- OVERLAY -->
-
-<div class="overlay" id="overlay"></div>
-
 <!-- HEADER -->
 
 <div class="header">
 
-<div class="logo">GEKKO</div>
+    <!-- LOGO -->
 
-<div class="nav" id="nav">
+    <div class="logo">
+        GEKKO
+    </div>
 
-<a href="index.html">Home</a>
-<a href="order.html">Order</a>
-<a href="menu1.html">Menu Box</a>
-<a href="ceatring.html">Catering</a>
-<a href="#">Golden Reserve</a>
+    <!-- BURGER -->
+
+    <div class="menu-toggle" id="menu-toggle">
+        ☰
+    </div>
+
+    <!-- NAVBAR -->
+
+    <div class="nav" id="nav">
+
+        <a href="index.html">Home</a>
+        <a href="order.html">Order</a>
+        <a href="menu1.html">Menu Box</a>
+        <a href="ceatring.html">Catering</a>
+        <a href="#">Golden Reserve</a>
+
+        <!-- CART -->
+
+        <a href="card.html" class="cart">
+            🛒 Cart:
+            <span id="cart-count">0</span>
+        </a>
+
+    </div>
 
 </div>
 
-<div class="cart">
-Cart: <span id="cart-count">0</span>
-</div>
 
-<div class="menu-toggle" id="menuBtn">
-☰
-</div>
+
+
+
+<!-- ZAMBYUGH -->
+
+<a href="card.html" class="cart">
+
+🛒 Cart:
+<span id="cart-count">0</span>
+
+</a>
 
 </div>
 
@@ -58,85 +80,111 @@ Cart: <span id="cart-count">0</span>
 
 </div>
 
-[15.05.2026 21:51] images: <!-- NIGIRI -->
+ <!-- NIGIRI -->
 
 <div class="menu">
 
-<h5 class="h5">Nigiri</h5>
+<h5 class="h5">
+Nigiri
+</h5>
 
 <hr class="hr">
 
 <div class="grid">
 
 <div class="card">
-<img src="./images/Bluefin Tuna.webp" alt="Bluefin Tuna">
+<img src="./images/Bluefin Tuna.webp" alt="">
 <div class="card-body">
 <h3>Blue Fin Tuna</h3>
-<p class="price">$12.00</p>
-<button class="btn" onclick="add()">+ Add</button>
+<p class="price">$12</p>
+<button class="btn"
+onclick="addToCart('Blue Fin Tuna',12,'./images/Bluefin Tuna.webp')">
++ Add
+</button>
 </div>
 </div>
 
 <div class="card">
-<img src="./images/Ora King Salmon.webp" alt="Ora King Salmon">
+<img src="./images/Ora King Salmon.webp" alt="">
 <div class="card-body">
 <h3>Seared Black Cod</h3>
-<p class="price">$12.00</p>
-<button class="btn" onclick="add()">+ Add</button>
+<p class="price">$18</p>
+<button class="btn"
+onclick="addToCart('Seared Black Cod',18,'./images/Ora King Salmon.webp')">
++ Add
+</button>
 </div>
 </div>
 
 <div class="card">
-<img src="./images/Albacore1.avif" alt="Albacore">
-<div class="card-body">
-<h3>Kurodai</h3>
-<p class="price">$12.00</p>
-<button class="btn" onclick="add()">+ Add</button>
-</div>
-</div>
-
-<div class="card">
-<img src="./images/kanapachi.jpg" alt="Kanpachi">
-<div class="card-body">
-<h3>Albacore</h3>
-<p class="price">$12.00</p>
-<button class="btn" onclick="add()">+ Add</button>
-</div>
-</div>
-
-<div class="card">
-<img src="./images/kanapachi.jpg" alt="Kanpachi">
-<div class="card-body">
-<h3>Unagi</h3>
-<p class="price">$12.00</p>
-<button class="btn" onclick="add()">+ Add</button>
-</div>
-</div>
-
-<div class="card">
-<img src="./images/Albacore1.avif" alt="Albacore">
-<div class="card-body">
-<h3>Toro Uni Caviar Truffle</h3>
-<p class="price">$35.00</p>
-<button class="btn" onclick="add()">+ Add</button>
-</div>
-</div>
-
-<div class="card">
-<img src="./images/Albacore1.avif" alt="Albacore">
-<div class="card-body">
-<h3>A – 5 Wagyu</h3>
-<p class="price">$35.00</p>
-<button class="btn" onclick="add()">+ Add</button>
-</div>
-</div>
-
-<div class="card">
-<img src="./images/Albacore1.avif" alt="Albacore">
+<img src="./images/Super Toro.jpg" alt="">
 <div class="card-body">
 <h3>Super Toro</h3>
-<p class="price">$30.00</p>
-<button class="btn" onclick="add()">+ Add</button>
+<p class="price">$30</p>
+<button class="btn"
+onclick="addToCart('Super Toro',30,'./images/Super Toro.jpg')">
++ Add
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/kanapachi.jpg" alt="">
+<div class="card-body">
+<h3>Kanpachi</h3>
+<p class="price">$24</p>
+<button class="btn"
+onclick="addToCart('Kanpachi',24,'./images/kanapachi.jpg')">
++ Add
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/Unagi.jpg" alt="">
+<div class="card-body">
+<h3>Unagi</h3>
+<p class="price">$22</p>
+<button class="btn"
+onclick="addToCart('Unagi',22,'./images/Unagi.jpg')">
++ Add
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/Kurodai.jpg" alt="">
+<div class="card-body">
+<h3>Kurodai</h3>
+<p class="price">$20</p>
+<button class="btn"
+onclick="addToCart('Kurodai',20,'./images/Kurodai.jpg')">
++ Add
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/A5 Wagyu.jpg" alt="">
+<div class="card-body">
+<h3>A5 Wagyu</h3>
+<p class="price">$40</p>
+<button class="btn"
+onclick="addToCart('A5 Wagyu',40,'./images/A5 Wagyu.jpg')">
++ Add
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/Toro Uni Caviar Truffle.jpg" alt="">
+<div class="card-body">
+<h3>Toro Uni Caviar</h3>
+<p class="price">$45</p>
+<button class="btn"
+onclick="addToCart('Toro Uni Caviar',45,'./images/Toro Uni Caviar Truffle.jpg')">
++ Add
+</button>
 </div>
 </div>
 
@@ -147,39 +195,23 @@ Cart: <span id="cart-count">0</span>
 
 <div class="menu">
 
-<h5 class="h5">Sashimi</h5>
+<h5 class="h5">
+Sashimi
+</h5>
 
 <hr class="hr">
 
 <div class="grid">
 
 <div class="card">
-<img src="./images/salmon sashimi.jpg" alt="Salmon Sashimi">
+<img src="./images/salmon sashimi.jpg" alt="">
 <div class="card-body">
-<h3>Octopus</h3>
-<p>Yuzu, Sesame Oil, Lemon, Sesame Seeds, Kaiware, Ponzu</p>
-<p class="price">$25.00</p>
-<button class="btn" onclick="add()">+ Add</button>
-</div>
-</div>
-
-<div class="card">
-<img src="./images/Halibut Sashimi.jpg" alt="">
-<div class="card-body">
-<h3>Kanpachi</h3>
-<p>Ponzu, Olive Oil, Jalapenos, Sweet Peppers, Cilantro, Kaiware</p>
-<p class="price">$25.00</p>
-<button class="btn" onclick="add()">+ Add</button>
-</div>
-</div>
-
-<div class="card">
-<img src="./images/salmon sashimi.jpg" alt="Salmon Sashimi">
-<div class="card-body">
-<h3>Albacore</h3>
-<p>Ponzu, Olive Oil, Jalapenos, Sweet Peppers, Cilantro, Fried Onions</p>
-<p class="price">$25.00</p>
-<button class="btn" onclick="add()">+ Add</button>
+<h3>Salmon Sashimi</h3>
+<p class="price">$25</p>
+<button class="btn"
+onclick="addToCart('Salmon Sashimi',25,'./images/salmon sashimi.jpg')">
++ Add
+</button>
 </div>
 </div>
 
@@ -188,7 +220,10 @@ Cart: <span id="cart-count">0</span>
 <div class="card-body">
 <h3>Kanpachi Sashimi</h3>
 <p class="price">$30</p>
-<button class="btn" onclick="add()">+ Add</button>
+<button class="btn"
+onclick="addToCart('Kanpachi Sashimi',30,'./images/Kanpachi Sashimi.jpg')">
++ Add
+</button>
 </div>
 </div>
 
@@ -196,58 +231,87 @@ Cart: <span id="cart-count">0</span>
 <img src="./images/Octopus Sashimi.jpg" alt="">
 <div class="card-body">
 <h3>Octopus Sashimi</h3>
-<p class="price">$30</p>
-<button class="btn" onclick="add()">+ Add</button>
+<p class="price">$28</p>
+<button class="btn"
+onclick="addToCart('Octopus Sashimi',28,'./images/Octopus Sashimi.jpg')">
++ Add
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/Halibut Sashimi.jpg" alt="">
+<div class="card-body">
+<h3>Halibut Sashimi</h3>
+<p class="price">$32</p>
+<button class="btn"
+onclick="addToCart('Halibut Sashimi',32,'./images/Halibut Sashimi.jpg')">
++ Add
+</button>
 </div>
 </div>
 
 </div>
 </div>
 
-<!-- CUT ROLLS -->
+<!-- CUT ROLL -->
 
 <div class="menu">
 
-<h5 class="h5">Cut Rolls</h5>
+<h5 class="h5">
+Cut Roll
+</h5>
 
 <hr class="hr">
 
 <div class="grid">
 
 <div class="card">
-<img src="./images/kanapachi.jpg" alt="">
+<img src="./images/spicy tuna roll.jpg" alt="">
 <div class="card-body">
-<h3>Spicy Tuna Cut Roll</h3>
-<p class="price">$14</p>
-<button class="btn" onclick="add()">+ Add</button>
-</div>
-</div>
-
-<div class="card">
-<img src="./images/Kurodai.jpg" alt="">
-<div class="card-body">
-<h3>Albacore Cut Roll</h3>
-<p class="price">$14</p>
-<button class="btn" onclick="add()">+ Add</button>
-</div>
-</div>
-
-<div class="card">
-<img src="./images/Unagi.jpg" alt="">
-<div class="card-body">
-<h3>Spicy Lobster Cut Roll</h3>
-<p class="price">$24</p>
-<button class="btn" onclick="add()">+ Add</button>
-</div>
-</div>
-
-<div class="card">
-<img src="./images/Super Toro.jpg" alt="">
-<div class="card-body">
-<h3>Lemon Salmon Cut Roll</h3>
+<h3>Spicy Tuna Roll</h3>
 <p class="price">$16</p>
-<button class="btn" onclick="add()">+ Add</button>
-[15.05.2026 21:51] images: </div>
+<button class="btn"
+onclick="addToCart('Spicy Tuna Roll',16,'./images/spicy tuna roll.jpg')">
++ Add
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/lobster roll.jpg" alt="">
+<div class="card-body">
+<h3>Lobster Roll</h3>
+<p class="price">$24</p>
+<button class="btn"
+onclick="addToCart('Lobster Roll',24,'./images/lobster roll.jpg')">
++ Add
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/salmon roll.jpg" alt="">
+<div class="card-body">
+<h3>Salmon Roll</h3>
+<p class="price">$18</p>
+<button class="btn"
+ onclick="addToCart('Salmon Roll',18,'./images/salmon roll.jpg')">
++ Add
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/crunch roll.jpg" alt="">
+<div class="card-body">
+<h3>Crunch Roll</h3>
+<p class="price">$20</p>
+<button class="btn"
+onclick="addToCart('Crunch Roll',20,'./images/crunch roll.jpg')">
++ Add
+</button>
+</div>
 </div>
 
 </div>
@@ -257,145 +321,193 @@ Cart: <span id="cart-count">0</span>
 
 <div class="menu">
 
-<h5 class="h5">Robatayaki</h5>
+<h5 class="h5">
+Robatayaki
+</h5>
 
 <hr class="hr">
 
 <div class="grid">
 
 <div class="card">
-<img src="./images/Salmon1.jpg" alt="">
-<div class="card-body">
-<h3>Chicken Liver</h3>
-<p class="price">$10</p>
-<button class="btn" onclick="add()">+ Add</button>
-</div>
-</div>
-
-<div class="card">
-<img src="./images/Toro Uni Caviar Truffle.jpg" alt="">
-<div class="card-body">
-<h3>Black Cod Skewer</h3>
-<p class="price">$10</p>
-<button class="btn" onclick="add()">+ Add</button>
-</div>
-</div>
-
-<div class="card">
-<img src="./images/kanapachi.jpg" alt="">
-<div class="card-body">
-<h3>Shiitake Mushroom</h3>
-<p class="price">$5</p>
-<button class="btn" onclick="add()">+ Add</button>
-</div>
-</div>
-
-<div class="card">
-<img src="./images/Kurodai.jpg" alt="">
+<img src="./images/chicken yakitori.jpg" alt="">
 <div class="card-body">
 <h3>Chicken Yakitori</h3>
-<p class="price">$6</p>
-<button class="btn" onclick="add()">+ Add</button>
+<p class="price">$10</p>
+<button class="btn"
+onclick="addToCart('Chicken Yakitori',10,'./images/chicken yakitori.jpg')">
++ Add
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/black cod.jpg" alt="">
+<div class="card-body">
+<h3>Black Cod Skewer</h3>
+<p class="price">$14</p>
+<button class="btn"
+onclick="addToCart('Black Cod Skewer',14,'./images/black cod.jpg')">
++ Add
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/mushroom.jpg" alt="">
+<div class="card-body">
+<h3>Shiitake Mushroom</h3>
+<p class="price">$8</p>
+<button class="btn"
+onclick="addToCart('Shiitake Mushroom',8,'./images/mushroom.jpg')">
++ Add
+</button>
+</div>
+</div>
+
+<div class="card">
+<img src="./images/wagyu skewer.jpg" alt="">
+<div class="card-body">
+<h3>Wagyu Skewer</h3>
+<p class="price">$35</p>
+<button class="btn"
+onclick="addToCart('Wagyu Skewer',35,'./images/wagyu skewer.jpg')">
++ Add
+</button>
 </div>
 </div>
 
 </div>
 </div>
 
-<!-- HAND ROLLS -->
+<!-- HAND ROLL -->
 
 <div class="menu">
 
-<h5 class="h5">Hand Rolls</h5>
+<h5 class="h5">
+Hand Roll
+</h5>
 
 <hr class="hr">
 
 <div class="grid">
 
 <div class="card">
-<img src="./images/Salmon1.jpg" alt="">
+<img src="./images/spicy tuna hand roll.jpg" alt="">
 <div class="card-body">
 <h3>Spicy Tuna</h3>
-<p>Avocado, Cucumber, Kaiware</p>
-<p class="price">$9.00</p>
-<button class="btn" onclick="add()">+ Add</button>
+<p class="price">$12</p>
+<button class="btn"
+onclick="addToCart('Spicy Tuna',12,'./images/spicy tuna hand roll.jpg')">
++ Add
+</button>
 </div>
 </div>
 
 <div class="card">
-<img src="./images/Toro Uni Caviar Truffle.jpg" alt="">
+<img src="./images/scallop hand roll.jpg" alt="">
 <div class="card-body">
-<h3>Crunchy Shrimp</h3>
-<p>Shrimp, Avocado, Tempura Flakes</p>
-<p class="price">$10.00</p>
-<button class="btn" onclick="add()">+ Add</button>
+<h3>Scallop Hand Roll</h3>
+<p class="price">$15</p>
+<button class="btn"
+onclick="addToCart('Scallop Hand Roll',15,'./images/scallop hand roll.jpg')">
++ Add
+</button>
 </div>
 </div>
 
 <div class="card">
-<img src="./images/kanapachi.jpg" alt="">
+<img src="./images/crab hand roll.jpg" alt="">
 <div class="card-body">
-<h3>Spicy Scallop</h3>
-<p>Spicy Chopped Scallop, Tempura Flakes</p>
-<p class="price">$9.00</p>
-<button class="btn" onclick="add()">+ Add</button>
+<h3>King Crab Roll</h3>
+<p class="price">$20</p>
+<button class="btn"
+onclick="addToCart('King Crab Roll',20,'./images/crab hand roll.jpg')">
++ Add
+</button>
 </div>
 </div>
 
 <div class="card">
-<img src="./images/Kurodai.jpg" alt="">
+<img src="./images/shrimp hand roll.jpg" alt="">
 <div class="card-body">
-<h3>Seared Scallop</h3>
-<p>Shiso, Yuzu Kosho</p>
-<p class="price">$9.00</p>
-<button class="btn" onclick="add()">+ Add</button>
+<h3>Shrimp Tempura Roll</h3>
+<p class="price">$16</p>
+<button class="btn"
+onclick="addToCart('Shrimp Tempura Roll',16,'./images/shrimp hand roll.jpg')">
++ Add
+</button>
 </div>
 </div>
 
 </div>
 </div>
 
-<script>
+<!-- SCRIPT -->
 
-let cart = 0;
 
-function add(){
+<script >
+    
 
-cart++;
+/* MENU TOGGLE */
 
-document.getElementById("cart-count").innerHTML = cart;
-
-}
-
-/* MOBILE MENU */
-
-const menuBtn =
-document.getElementById("menuBtn");
+const menuToggle =
+document.getElementById("menu-toggle");
 
 const nav =
 document.getElementById("nav");
 
-const overlay =
-document.getElementById("overlay");
-
-menuBtn.onclick = () => {
+menuToggle.onclick = () =>{
 
 nav.classList.toggle("active");
 
-overlay.classList.toggle("active");
+}
+
+
+
+/* LOAD CART */
+
+let cart =
+JSON.parse(localStorage.getItem("gekko-cart")) || [];
+
+/* UPDATE COUNT */
+
+updateCart();
+
+/* ADD TO CART */
+
+function addToCart(name,price,image){
+
+cart.push({
+name:name,
+price:price,
+image:image
+});
+
+/* SAVE */
+
+localStorage.setItem(
+"gekko-cart",
+JSON.stringify(cart)
+);
+
+/* UPDATE */
+
+updateCart();
 
 }
 
-overlay.onclick = () => {
+/* UPDATE CART COUNT */
 
-nav.classList.remove("active");
+function updateCart(){
 
-overlay.classList.remove("active");
+document.getElementById("cart-count")
+.innerHTML = cart.length;
 
 }
+
 
 </script>
-
 </body>
 
-</html>
+</html> 
