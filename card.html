@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,9 +7,625 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>GEKKO CART</title>
-<link rel="stylesheet" href="card.css">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   ROOT
+========================= */
+
+:root{
+  --gold-1:#d4af37;
+  --gold-2:#f6d365;
+  --gold-3:#fff2b6;
+
+  --bg:#050505;
+  --card:#0d0d0d;
+
+  --text:#ffffff;
+  --muted:#8a8a8a;
+
+  --border:rgba(255,215,120,0.08);
+
+  --shadow:
+  0 10px 40px rgba(0,0,0,0.45);
+}
+
+/* RESET */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:
+  radial-gradient(circle at top,
+  rgba(212,175,55,0.06),
+  transparent 35%),
+  var(--bg);
+
+  color:white;
+
+  font-family:'Montserrat',sans-serif;
+
+  padding:140px 30px;
+
+  overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+  width:10px;
+}
+
+::-webkit-scrollbar-track{
+  background:#0b0b0b;
+}
+
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(
+  180deg,
+  var(--gold-1),
+  var(--gold-2)
+  );
+
+  border-radius:20px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  position:fixed;
+  top:0;
+  left:0;
+
+  width:100%;
+  height:90px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:0 40px;
+
+  background:rgba(0,0,0,0.82);
+
+  -webkit-backdrop-filter:blur(18px);
+  backdrop-filter:blur(18px);
+
+  border-bottom:1px solid rgba(255,255,255,0.04);
+
+  z-index:999;
+}
+
+.logo{
+  font-size:34px;
+  font-family:'Cinzel',serif;
+  font-weight:900;
+  letter-spacing:5px;
+
+  background:
+  linear-gradient(
+  135deg,
+  #f6d365,
+  #fff2b6,
+  #d4af37
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.back{
+  text-decoration:none;
+
+  padding:13px 26px;
+
+  border-radius:50px;
+
+  background:
+  linear-gradient(
+  135deg,
+  var(--gold-1),
+  var(--gold-2)
+  );
+
+  color:black;
+
+  font-weight:700;
+
+  transition:0.35s ease;
+}
+
+.back:hover{
+  transform:translateY(-3px);
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.title{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.title h1{
+  font-size:72px;
+  font-family:'Cinzel',serif;
+  font-weight:900;
+
+  letter-spacing:4px;
+
+  color:var(--gold-3);
+
+  margin-bottom:16px;
+}
+
+.title p{
+  color:var(--muted);
+
+  font-size:15px;
+  letter-spacing:4px;
+
+  text-transform:uppercase;
+}
+
+/* =========================
+   CART
+========================= */
+
+.cart-container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.cart-item{
+  display:flex;
+  align-items:center;
+  gap:26px;
+
+  background:
+  linear-gradient(
+  145deg,
+  rgba(255,255,255,0.015),
+  rgba(255,255,255,0.005)
+  );
+
+  border:1px solid var(--border);
+
+  border-radius:28px;
+
+  padding:22px;
+
+  margin-bottom:28px;
+
+  transition:0.4s ease;
+
+  box-shadow:var(--shadow);
+}
+
+.cart-item:hover{
+  transform:translateY(-6px);
+
+  border-color:
+  rgba(212,175,55,0.18);
+}
+
+.cart-item img{
+  width:140px;
+  height:140px;
+
+  object-fit:cover;
+
+  border-radius:22px;
+
+  transition:0.4s ease;
+}
+
+.cart-item:hover img{
+  transform:scale(1.04);
+}
+
+.info{
+  flex:1;
+}
+
+.info h2{
+  font-size:30px;
+  font-family:'Cinzel',serif;
+
+  color:var(--gold-3);
+
+  margin-bottom:14px;
+}
+
+.price{
+  font-size:22px;
+  font-weight:700;
+
+  color:var(--gold-2);
+}
+
+.remove{
+  border:none;
+
+  padding:14px 24px;
+
+  border-radius:16px;
+
+  cursor:pointer;
+
+  font-weight:700;
+
+  color:white;
+
+  background:
+  linear-gradient(
+  135deg,
+  #ff2d2d,
+  #b30000
+  );
+
+  transition:0.35s ease;
+}
+
+.remove:hover{
+  transform:translateY(-3px);
+}
+
+/* =========================
+   TOTAL
+========================= */
+
+.total-box{
+  margin-top:60px;
+
+  max-width:1200px;
+  margin-inline:auto;
+
+  padding:40px;
+
+  border-radius:30px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  background:
+  linear-gradient(
+  145deg,
+  rgba(255,255,255,0.02),
+  rgba(255,255,255,0.01)
+  );
+
+  border:1px solid rgba(255,215,120,0.08);
+
+  box-shadow:var(--shadow);
+}
+
+.total-box h1{
+  font-size:54px;
+  font-family:'Cinzel',serif;
+
+  color:var(--gold-3);
+}
+
+.checkout{
+  border:none;
+
+  padding:20px 48px;
+
+  border-radius:22px;
+
+  cursor:pointer;
+
+  font-size:15px;
+  font-weight:800;
+
+  letter-spacing:3px;
+
+  color:black;
+
+  background:
+  linear-gradient(
+  135deg,
+  var(--gold-1),
+  var(--gold-2)
+  );
+
+  transition:0.4s ease;
+}
+
+.checkout:hover{
+  transform:translateY(-4px);
+}
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+  text-align:center;
+
+  padding:100px 20px;
+
+  font-size:30px;
+
+  color:#7d7d7d;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+#checkout-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+
+  background:rgba(0,0,0,0.88);
+
+  z-index:9999;
+
+  justify-content:center;
+  align-items:center;
+
+  padding:20px;
+}
+
+.modal-content{
+  width:100%;
+  max-width:520px;
+
+  background:#0f0f0f;
+
+  border:1px solid var(--gold-1);
+
+  border-radius:10px;
+
+  overflow:hidden;
+
+  position:relative;
+}
+
+.strip{
+  background:
+  linear-gradient(
+  135deg,
+  #b8960c,
+  #d4af37,
+  #f0d060,
+  #d4af37,
+  #b8960c
+  );
+
+  padding:6px;
+
+  text-align:center;
+}
+
+.strip span{
+  color:black;
+
+  font-size:10px;
+  letter-spacing:4px;
+
+  font-weight:700;
+}
+
+.close{
+  position:absolute;
+  top:20px;
+  right:20px;
+
+  background:none;
+  border:none;
+
+  color:var(--gold-1);
+
+  font-size:24px;
+
+  cursor:pointer;
+}
+
+.modal-title{
+  text-align:center;
+
+  padding:35px 35px 15px;
+}
+
+.modal-title small{
+  color:var(--gold-1);
+
+  letter-spacing:4px;
+
+  font-size:10px;
+}
+
+.modal-title h2{
+  font-size:28px;
+
+  font-family:'Cinzel',serif;
+
+  letter-spacing:6px;
+
+  margin-top:10px;
+
+  color:white;
+}
+
+.form{
+  padding:10px 35px 35px;
+}
+
+.group{
+  margin-bottom:16px;
+}
+
+.group label{
+  display:block;
+
+  margin-bottom:8px;
+
+  font-size:10px;
+
+  letter-spacing:3px;
+
+  color:var(--gold-1);
+}
+
+.group input,
+.group textarea{
+  width:100%;
+
+  background:#1a1a1a;
+
+  border:1px solid #333;
+
+  border-radius:6px;
+
+  padding:14px 15px;
+
+  color:white;
+
+  outline:none;
+
+  font-family:'Montserrat',sans-serif;
+}
+
+.group textarea{
+  resize:none;
+}
+
+.summary{
+  background:#151515;
+
+  border-left:3px solid var(--gold-1);
+
+  padding:16px;
+
+  border-radius:6px;
+
+  margin-bottom:20px;
+}
+
+.summary-title{
+  color:var(--gold-1);
+
+  font-size:10px;
+
+  letter-spacing:3px;
+
+  margin-bottom:12px;
+}
+
+.summary-items{
+  color:#ccc;
+
+  line-height:2;
+}
+
+.total-row{
+  margin-top:14px;
+
+  padding-top:14px;
+
+  border-top:1px solid #333;
+
+  display:flex;
+  justify-content:space-between;
+}
+
+.place-btn{
+  width:100%;
+
+  border:none;
+
+  padding:16px;
+
+  border-radius:6px;
+
+  cursor:pointer;
+
+  font-weight:800;
+
+  letter-spacing:4px;
+
+  color:black;
+
+  background:
+  linear-gradient(
+  135deg,
+  #b8960c,
+  #d4af37,
+  #f0d060
+  );
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+  body{
+    padding:110px 16px;
+  }
+
+  .header{
+    height:78px;
+    padding:0 18px;
+  }
+
+  .logo{
+    font-size:24px;
+  }
+
+  .title h1{
+    font-size:42px;
+  }
+
+  .cart-item{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .cart-item img{
+    width:100%;
+    max-width:320px;
+    height:220px;
+  }
+
+  .remove{
+    width:100%;
+  }
+
+  .total-box{
+    flex-direction:column;
+    gap:28px;
+
+    text-align:center;
+  }
+
+  .total-box h1{
+    font-size:34px;
+  }
+
+  .checkout{
+    width:100%;
+  }
+
+}
+
+</style>
 
 </head>
 
@@ -57,15 +673,114 @@ Luxury Sushi Selection
 TOTAL: $<span id="total">0</span>
 </h1>
 
-<button class="checkout">
+<button onclick="openModal()" class="checkout">
 CHECKOUT
 </button>
 
 </div>
 
+<!-- CHECKOUT MODAL -->
+
+<div id="checkout-modal">
+
+<div class="modal-content">
+
+<div class="strip">
+<span>✦ GEKKO SUSHI ✦</span>
+</div>
+
+<button class="close" onclick="closeModal()">
+✕
+</button>
+
+<div class="modal-title">
+
+<small>
+COMPLETE YOUR
+</small>
+
+<h2>
+ORDER
+</h2>
+
+</div>
+
+<div class="form">
+
+<div class="group">
+<label>FULL NAME</label>
+<input id="co-name" type="text">
+</div>
+
+<div class="group">
+<label>PHONE NUMBER</label>
+<input id="co-phone" type="text">
+</div>
+
+<div class="group">
+<label>EMAIL ADDRESS</label>
+<input id="co-email" type="email">
+</div>
+
+<div class="group">
+<label>DELIVERY ADDRESS</label>
+<input id="co-address" type="text">
+</div>
+
+<div class="group">
+<label>SPECIAL REQUESTS</label>
+<textarea id="co-note" rows="3"></textarea>
+</div>
+
+<div class="summary">
+
+<div class="summary-title">
+ORDER SUMMARY
+</div>
+
+<div id="co-items" class="summary-items">
+
+</div>
+
+<div class="total-row">
+
+<span>
+TOTAL
+</span>
+
+<span id="co-total">
+$0
+</span>
+
+</div>
+
+</div>
+
+<button id="co-btn" class="place-btn" onclick="submitOrder()">
+PLACE ORDER
+</button>
+
+</div>
+
+<div class="strip">
+<span>✦ IMPERIAL DINING EXPERIENCE ✦</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- EMAILJS -->
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 <script>
 
-/* LOAD CART */
+/* EMAILJS */
+
+emailjs.init("yYBEQsEeNxG8GpiKm");
+
+/* CART */
 
 let cart =
 JSON.parse(localStorage.getItem("gekko-cart")) || [];
@@ -76,7 +791,7 @@ document.getElementById("cart-container");
 const total =
 document.getElementById("total");
 
-/* SHOW CART */
+/* RENDER CART */
 
 function renderCart(){
 
@@ -87,9 +802,11 @@ let totalPrice = 0;
 if(cart.length === 0){
 
 container.innerHTML =
-`<div class="empty">
+`
+<div class="empty">
 Your cart is empty
-</div>`;
+</div>
+`;
 
 total.innerHTML = 0;
 
@@ -99,7 +816,7 @@ return;
 
 cart.forEach((item,index)=>{
 
-totalPrice += item.price;
+totalPrice += Number(item.price);
 
 container.innerHTML += `
 
@@ -149,6 +866,174 @@ renderCart();
 
 }
 
+/* OPEN MODAL */
+
+function openModal(){
+
+if(cart.length === 0){
+
+alert("Your cart is empty!");
+return;
+
+}
+
+let itemsHTML = "";
+let totalPrice = 0;
+
+cart.forEach(item=>{
+
+itemsHTML += `
+<div style="display:flex;justify-content:space-between;">
+<span>${item.name}</span>
+<span style="color:#d4af37;">$${item.price}</span>
+</div>
+`;
+
+totalPrice += Number(item.price);
+
+});
+
+document.getElementById("co-items").innerHTML =
+itemsHTML;
+
+document.getElementById("co-total").innerHTML =
+"$" + totalPrice;
+
+document.getElementById("checkout-modal").style.display =
+"flex";
+
+}
+
+/* CLOSE MODAL */
+
+function closeModal(){
+
+document.getElementById("checkout-modal").style.display =
+"none";
+
+}
+
+/* SUBMIT ORDER */
+
+function submitOrder(){
+
+const name =
+document.getElementById("co-name").value.trim();
+
+const phone =
+document.getElementById("co-phone").value.trim();
+
+const email =
+document.getElementById("co-email").value.trim();
+
+const address =
+document.getElementById("co-address").value.trim();
+
+const note =
+document.getElementById("co-note").value.trim();
+
+if(!name || !phone || !email || !address){
+
+alert("Please fill all fields.");
+return;
+
+}
+
+let itemsList =
+cart.map(item =>
+`${item.name} — $${item.price}`
+).join("\n");
+
+let totalPrice =
+cart.reduce((sum,item)=>
+sum + Number(item.price),0);
+
+const btn =
+document.getElementById("co-btn");
+
+btn.innerHTML = "SENDING...";
+btn.disabled = true;
+
+emailjs.send(
+"service_mruv796",
+"template_zhftytl",
+{
+
+from_name:name,
+phone:phone,
+email:email,
+address:address,
+
+message:
+`${itemsList}
+
+TOTAL: $${totalPrice}
+
+ADDRESS:
+${address}
+
+${note ? "NOTE:\n" + note : ""}`
+
+}
+
+)
+
+.then(()=>{
+
+btn.innerHTML =
+"✓ ORDER PLACED!";
+
+btn.style.background =
+"linear-gradient(135deg,#2d6a2d,#4CAF50)";
+
+localStorage.removeItem("gekko-cart");
+
+cart = [];
+
+renderCart();
+
+setTimeout(()=>{
+
+closeModal();
+
+btn.innerHTML =
+"PLACE ORDER";
+
+btn.disabled = false;
+
+btn.style.background =
+"linear-gradient(135deg,#b8960c,#d4af37,#f0d060)";
+
+},2000);
+
+})
+
+.catch(()=>{
+
+btn.innerHTML =
+"✕ ERROR";
+
+btn.disabled = false;
+
+});
+
+}
+
+/* OUTSIDE CLICK */
+
+window.addEventListener("click",function(e){
+
+const modal =
+document.getElementById("checkout-modal");
+
+if(e.target === modal){
+
+closeModal();
+
+}
+
+});
+
 /* START */
 
 renderCart();
@@ -156,5 +1041,4 @@ renderCart();
 </script>
 
 </body>
-
 </html>

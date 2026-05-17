@@ -1,5 +1,4 @@
 
-
 /* =========================
    RESET
 ========================= */
@@ -283,16 +282,14 @@ body{
 
     line-height:2;
 
-    font-size:16px;
-
-    font-family:'Cormorant Garamond', serif;
+ font-family:'Cormorant Garamond', serif;
 
     letter-spacing:1px;
 }
 
 /* =========================
    FORM
-[15.05.2026 21:39] links: ========================= */
+========================= */
 
 form{
 
